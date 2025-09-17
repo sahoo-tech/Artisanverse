@@ -1,0 +1,35 @@
+{
+  "name": "artisanverse",
+  "version": "1.0.0",
+  "description": "AI-Powered Cultural Heritage Marketplace - Full Stack Application",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node artisanverse-ai-backend/src/server.js",
+    "dev": "cd artisanverse-ai-backend && npm run dev",
+    "install-backend": "cd artisanverse-ai-backend && npm install",
+    "build": "cd artisanverse-ai-backend && npm run build",
+    "deploy": "vercel --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahoo-tech/Artisanverse.git"
+  },
+  "keywords": [
+    "ai",
+    "marketplace",
+    "cultural-heritage",
+    "artisan",
+    "openai",
+    "express",
+    "vercel"
+  ],
+  "author": "ArtisanVerse Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sahoo-tech/Artisanverse/issues"
+  },
+  "homepage": "https://github.com/sahoo-tech/Artisanverse#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

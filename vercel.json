@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "name": "artisanverse",
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "artisanverse-ai-frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "artisanverse-ai-frontend/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "VERCEL": "true"
+  },
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!api|_next|favicon.ico).*)",
+      "destination": "/artisanverse-ai-frontend/$1"
+    }
+  ]
+}
