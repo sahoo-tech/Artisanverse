@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtisanVerse - AI-Powered Heritage Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-lotus"></i>
+                <span>ArtisanVerse</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#artisan-portal" class="nav-link">Artisan Portal</a>
+                <a href="#buyer-portal" class="nav-link">Buyer Portal</a>
+                <a href="#ai-mentor" class="nav-link">AI Mentor</a>
+                <a href="#admin" class="nav-link">Admin</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn--secondary" id="login-btn">Login</button>
+                <button class="btn btn--primary" id="register-btn">Register</button>
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        
+        <!-- Homepage Section -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Discover Authentic Indian Heritage</h1>
+                        <p class="hero-subtitle">Connect with master artisans and bring timeless craftsmanship to your world through AI-powered storytelling and immersive experiences.</p>
+                        <div class="hero-actions">
+                            <button class="btn btn--primary btn--lg" id="explore-crafts-btn">Explore Crafts</button>
+                            <button class="btn btn--outline btn--lg" id="become-artisan-btn">Become an Artisan</button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-image">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1755386535/pplx_project_search_images/0da3f00ea0826ff40a34d7e0643435d03391ec08.png" alt="Traditional Indian Handicrafts">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Master Artisans</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Authentic Products</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Heritage Crafts</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Indian States</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Artisans -->
+            <div class="featured-artisans">
+                <div class="container">
+                    <h2 class="section-title">Featured Master Artisans</h2>
+                    <div class="artisan-carousel" id="artisan-carousel">
+                        <!-- Dynamic content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heritage Timeline -->
+            <div class="heritage-timeline">
+                <div class="container">
+                    <h2 class="section-title">Craft Heritage Timeline</h2>
+                    <div class="timeline" id="heritage-timeline">
+                        <!-- Dynamic timeline content -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <div class="featured-products">
+                <div class="container">
+                    <h2 class="section-title">Trending Heritage Products</h2>
+                    <div class="product-grid" id="featured-products-grid">
+                        <!-- Dynamic product content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artisan Portal Section -->
+        <section id="artisan-portal" class="page">
+            <div class="container">
+                <div class="portal-header">
+                    <h1>Artisan Portal</h1>
+                    <p>Manage your craft business with AI-powered tools</p>
+                </div>
+
+                <!-- Artisan Dashboard -->
+                <div id="artisan-dashboard" class="dashboard">
+                    <div class="dashboard-nav">
+                        <button class="dash-nav-item active" data-tab="onboarding">Onboarding</button>
+                        <button class="dash-nav-item" data-tab="profile">Profile</button>
+                        <button class="dash-nav-item" data-tab="products">Products</button>
+                        <button class="dash-nav-item" data-tab="orders">Orders</button>
+                        <button class="dash-nav-item" data-tab="analytics">Analytics</button>
+                        <button class="dash-nav-item" data-tab="mentor">AI Mentor</button>
+                    </div>
+
+                    <!-- Onboarding Tab -->
+                    <div id="onboarding-tab" class="tab-content active">
+                        <div class="onboarding-form">
+                            <h3>Welcome! Let's Create Your Artisan Profile</h3>
+                            <form id="artisan-onboarding-form">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Craft Specialization</label>
+                                    <select class="form-control" name="craft" required>
+                                        <option value="">Select your craft</option>
+                                        <option value="Madhubani Paintings">Madhubani Paintings</option>
+                                        <option value="Blue Pottery">Blue Pottery</option>
+                                        <option value="Coconut Shell Craft">Coconut Shell Craft</option>
+                                        <option value="Chikankari Embroidery">Chikankari Embroidery</option>
+                                        <option value="Kalamkari Prints">Kalamkari Prints</option>
+                                        <option value="Dhokra Metal Craft">Dhokra Metal Craft</option>
+                                        <option value="Phulkari Embroidery">Phulkari Embroidery</option>
+                                        <option value="Warli Art">Warli Art</option>
+                                        <option value="Pashmina Weaving">Pashmina Weaving</option>
+                                        <option value="Wood Carving">Wood Carving</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Region</label>
+                                    <select class="form-control" name="region" required>
+                                        <option value="">Select your region</option>
+                                        <option value="Bihar - Madhubani">Bihar - Madhubani</option>
+                                        <option value="Rajasthan - Jaipur">Rajasthan - Jaipur</option>
+                                        <option value="Kerala - Kochi">Kerala - Kochi</option>
+                                        <option value="Uttar Pradesh - Lucknow">Uttar Pradesh - Lucknow</option>
+                                        <option value="Andhra Pradesh - Srikalahasti">Andhra Pradesh - Srikalahasti</option>
+                                        <option value="Chhattisgarh - Bastar">Chhattisgarh - Bastar</option>
+                                        <option value="Punjab - Patiala">Punjab - Patiala</option>
+                                        <option value="Maharashtra - Warli">Maharashtra - Warli</option>
+                                        <option value="Kashmir - Srinagar">Kashmir - Srinagar</option>
+                                        <option value="Karnataka - Mysore">Karnataka - Mysore</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Years of Experience</label>
+                                    <input type="number" class="form-control" name="experience" min="1" max="50" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Profile Photo</label>
+                                    <input type="file" class="form-control" name="photo" accept="image/*">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Sample Product Image</label>
+                                    <input type="file" class="form-control" name="sample" accept="image/*">
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Generate AI Profile</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Profile Tab -->
+                    <div id="profile-tab" class="tab-content">
+                        <div class="profile-section" id="artisan-profile">
+                            <!-- AI-generated profile content will appear here -->
+                        </div>
+                    </div>
+
+                    <!-- Products Tab -->
+                    <div id="products-tab" class="tab-content">
+                        <div class="products-header">
+                            <h3>Product Management</h3>
+                            <button class="btn btn--primary" id="add-product-btn">Add New Product</button>
+                        </div>
+                        <div class="products-grid" id="artisan-products">
+                            <!-- Product management content -->
+                        </div>
+                    </div>
+
+                    <!-- Orders Tab -->
+                    <div id="orders-tab" class="tab-content">
+                        <h3>Order Management</h3>
+                        <div class="orders-list" id="artisan-orders">
+                            <!-- Orders content -->
+                        </div>
+                    </div>
+
+                    <!-- Analytics Tab -->
+                    <div id="analytics-tab" class="tab-content">
+                        <h3>Performance Analytics</h3>
+                        <div class="analytics-grid">
+                            <div class="analytics-card">
+                                <h4>Sales Overview</h4>
+                                <div class="chart-container" style="position: relative; height: 300px;">
+                                    <canvas id="sales-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="analytics-card">
+                                <h4>Product Performance</h4>
+                                <div class="chart-container" style="position: relative; height: 300px;">
+                                    <canvas id="products-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Mentor Tab -->
+                    <div id="mentor-tab" class="tab-content">
+                        <div class="mentor-chat">
+                            <h3>AI Community Co-Pilot</h3>
+                            <div class="chat-container" id="mentor-chat">
+                                <div class="chat-messages" id="mentor-messages">
+                                    <div class="chat-message bot-message">
+                                        <div class="message-content">
+                                            <p>Namaste! I'm your AI mentor. I can help you with pricing strategies, marketing copy, customer negotiations, and growing your craft business. What would you like to learn today?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-input-area">
+                                    <input type="text" id="mentor-input" class="form-control" placeholder="Ask me anything about your craft business...">
+                                    <button class="btn btn--primary" id="send-mentor-message">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buyer Portal Section -->
+        <section id="buyer-portal" class="page">
+            <div class="container">
+                <div class="portal-header">
+                    <h1>Heritage Marketplace</h1>
+                    <p>Discover authentic crafts with immersive storytelling</p>
+                </div>
+
+                <!-- Filters and Search -->
+                <div class="marketplace-filters">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="product-search" placeholder="Search authentic crafts...">
+                    </div>
+                    <div class="filter-options">
+                        <select id="craft-filter" class="form-control">
+                            <option value="">All Crafts</option>
+                            <option value="Madhubani Paintings">Madhubani Paintings</option>
+                            <option value="Blue Pottery">Blue Pottery</option>
+                            <option value="Coconut Shell Craft">Coconut Shell Craft</option>
+                        </select>
+                        <select id="region-filter" class="form-control">
+                            <option value="">All Regions</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Kerala">Kerala</option>
+                        </select>
+                        <select id="price-filter" class="form-control">
+                            <option value="">All Prices</option>
+                            <option value="0-1000">Under ₹1,000</option>
+                            <option value="1000-3000">₹1,000 - ₹3,000</option>
+                            <option value="3000+">Above ₹3,000</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="marketplace-products" id="marketplace-products">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Mentor Section -->
+        <section id="ai-mentor" class="page">
+            <div class="container">
+                <div class="mentor-header">
+                    <h1>AI Community Co-Pilot</h1>
+                    <p>Your multilingual mentor for craft business success</p>
+                </div>
+                <div class="mentor-features">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-rupee-sign"></i>
+                            <h3>Pricing Strategies</h3>
+                            <p>Get AI-powered pricing recommendations based on market analysis</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-pen-fancy"></i>
+                            <h3>Marketing Copy</h3>
+                            <p>Generate compelling product descriptions and marketing content</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-handshake"></i>
+                            <h3>Negotiation Training</h3>
+                            <p>Learn effective customer negotiation techniques</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Business Growth</h3>
+                            <p>Strategic advice for expanding your craft business globally</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mentor-chat-section">
+                    <div class="chat-container">
+                        <div class="chat-messages" id="ai-mentor-messages">
+                            <div class="chat-message bot-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <p>Hello! I'm your AI Community Co-Pilot. I speak multiple languages and can help you with all aspects of your craft business. How can I assist you today?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="ai-mentor-input" class="form-control" placeholder="Ask me about pricing, marketing, negotiations, or business growth...">
+                            <button class="btn btn--primary" id="send-ai-mentor-message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin" class="page">
+            <div class="container">
+                <div class="portal-header">
+                    <h1>Admin Dashboard</h1>
+                    <p>Comprehensive platform management and analytics</p>
+                </div>
+
+                <div class="admin-dashboard">
+                    <div class="dashboard-nav">
+                        <button class="dash-nav-item active" data-tab="overview">Overview</button>
+                        <button class="dash-nav-item" data-tab="users">Users</button>
+                        <button class="dash-nav-item" data-tab="products">Products</button>
+                        <button class="dash-nav-item" data-tab="orders">Orders</button>
+                        <button class="dash-nav-item" data-tab="analytics">Analytics</button>
+                        <button class="dash-nav-item" data-tab="settings">Settings</button>
+                    </div>
+
+                    <!-- Overview Tab -->
+                    <div id="overview-tab" class="tab-content active">
+                        <div class="admin-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                                <div class="stat-info">
+                                    <div class="stat-number">1,247</div>
+                                    <div class="stat-label">Total Users</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-palette"></i></div>
+                                <div class="stat-info">
+                                    <div class="stat-number">456</div>
+                                    <div class="stat-label">Active Artisans</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-box"></i></div>
+                                <div class="stat-info">
+                                    <div class="stat-number">8,923</div>
+                                    <div class="stat-label">Products</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="stat-info">
+                                    <div class="stat-number">2,134</div>
+                                    <div class="stat-label">Orders</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin-charts">
+                            <div class="chart-card">
+                                <h4>Platform Growth</h4>
+                                <div class="chart-container" style="position: relative; height: 400px;">
+                                    <canvas id="platform-growth-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="chart-card">
+                                <h4>Revenue Trends</h4>
+                                <div class="chart-container" style="position: relative; height: 400px;">
+                                    <canvas id="revenue-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other tabs content will be handled by JavaScript -->
+                    <div id="users-tab" class="tab-content">
+                        <h3>User Management</h3>
+                        <div class="users-table" id="admin-users-table">
+                            <!-- Users table content -->
+                        </div>
+                    </div>
+
+                    <div id="products-tab" class="tab-content">
+                        <h3>Product Management</h3>
+                        <div class="products-table" id="admin-products-table">
+                            <!-- Products table content -->
+                        </div>
+                    </div>
+
+                    <div id="orders-tab" class="tab-content">
+                        <h3>Order Management</h3>
+                        <div class="orders-table" id="admin-orders-table">
+                            <!-- Orders table content -->
+                        </div>
+                    </div>
+
+                    <div id="analytics-tab" class="tab-content">
+                        <h3>Advanced Analytics</h3>
+                        <div class="analytics-dashboard" id="admin-analytics">
+                            <!-- Analytics Controls -->
+                            <div class="analytics-controls">
+                                <div class="date-range-selector">
+                                    <label for="analytics-period">Time Period:</label>
+                                    <select id="analytics-period" class="form-control">
+                                        <option value="7d">Last 7 Days</option>
+                                        <option value="30d" selected>Last 30 Days</option>
+                                        <option value="90d">Last 90 Days</option>
+                                        <option value="1y">Last Year</option>
+                                    </select>
+                                </div>
+                                <div class="analytics-actions">
+                                    <button class="btn btn--secondary" id="export-analytics">
+                                        <i class="fas fa-download"></i> Export Report
+                                    </button>
+                                    <button class="btn btn--primary" id="refresh-analytics">
+                                        <i class="fas fa-sync-alt"></i> Refresh Data
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Key Metrics Grid -->
+                            <div class="analytics-metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-header">
+                                        <h4>Revenue Growth</h4>
+                                        <span class="metric-trend positive">+12.5%</span>
+                                    </div>
+                                    <div class="metric-value">₹2,34,567</div>
+                                    <div class="metric-subtitle">vs last period</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-header">
+                                        <h4>User Engagement</h4>
+                                        <span class="metric-trend positive">+8.3%</span>
+                                    </div>
+                                    <div class="metric-value">78.5%</div>
+                                    <div class="metric-subtitle">avg session time</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-header">
+                                        <h4>Conversion Rate</h4>
+                                        <span class="metric-trend positive">+5.2%</span>
+                                    </div>
+                                    <div class="metric-value">4.8%</div>
+                                    <div class="metric-subtitle">visitor to buyer</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-header">
+                                        <h4>Artisan Satisfaction</h4>
+                                        <span class="metric-trend positive">+2.1%</span>
+                                    </div>
+                                    <div class="metric-value">4.7/5</div>
+                                    <div class="metric-subtitle">average rating</div>
+                                </div>
+                            </div>
+
+                            <!-- Advanced Charts -->
+                            <div class="advanced-charts-grid">
+                                <div class="chart-card large">
+                                    <div class="chart-header">
+                                        <h4>Revenue Analytics</h4>
+                                        <div class="chart-controls">
+                                            <button class="chart-control-btn active" data-chart="revenue-daily">Daily</button>
+                                            <button class="chart-control-btn" data-chart="revenue-weekly">Weekly</button>
+                                            <button class="chart-control-btn" data-chart="revenue-monthly">Monthly</button>
+                                        </div>
+                                    </div>
+                                    <div class="chart-container" style="position: relative; height: 400px;">
+                                        <canvas id="advanced-revenue-chart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="chart-card">
+                                    <h4>User Acquisition Sources</h4>
+                                    <div class="chart-container" style="position: relative; height: 300px;">
+                                        <canvas id="user-acquisition-chart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="chart-card">
+                                    <h4>Product Category Performance</h4>
+                                    <div class="chart-container" style="position: relative; height: 300px;">
+                                        <canvas id="category-performance-chart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="chart-card">
+                                    <h4>Geographic Distribution</h4>
+                                    <div class="chart-container" style="position: relative; height: 300px;">
+                                        <canvas id="geographic-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Performance Tables -->
+                            <div class="analytics-tables">
+                                <div class="table-card">
+                                    <h4>Top Performing Artisans</h4>
+                                    <div class="table-container">
+                                        <table class="analytics-table" id="top-artisans-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Artisan</th>
+                                                    <th>Craft</th>
+                                                    <th>Revenue</th>
+                                                    <th>Orders</th>
+                                                    <th>Rating</th>
+                                                    <th>Growth</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Dynamic content -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="table-card">
+                                    <h4>Best Selling Products</h4>
+                                    <div class="table-container">
+                                        <table class="analytics-table" id="top-products-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Category</th>
+                                                    <th>Sales</th>
+                                                    <th>Revenue</th>
+                                                    <th>Rating</th>
+                                                    <th>Stock</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Dynamic content -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="settings-tab" class="tab-content">
+                        <h3>System Settings</h3>
+                        <div class="settings-panel" id="admin-settings">
+                            <!-- Settings Navigation -->
+                            <div class="settings-nav">
+                                <button class="settings-nav-item active" data-setting="general">
+                                    <i class="fas fa-cog"></i> General
+                                </button>
+                                <button class="settings-nav-item" data-setting="platform">
+                                    <i class="fas fa-globe"></i> Platform
+                                </button>
+                                <button class="settings-nav-item" data-setting="payments">
+                                    <i class="fas fa-credit-card"></i> Payments
+                                </button>
+                                <button class="settings-nav-item" data-setting="notifications">
+                                    <i class="fas fa-bell"></i> Notifications
+                                </button>
+                                <button class="settings-nav-item" data-setting="security">
+                                    <i class="fas fa-shield-alt"></i> Security
+                                </button>
+                                <button class="settings-nav-item" data-setting="api">
+                                    <i class="fas fa-code"></i> API & Integrations
+                                </button>
+                            </div>
+
+                            <!-- General Settings -->
+                            <div id="general-settings" class="settings-content active">
+                                <div class="settings-section">
+                                    <h4>Platform Configuration</h4>
+                                    <form id="general-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Platform Name</label>
+                                            <input type="text" class="form-control" name="platformName" value="ArtisanVerse">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Tagline</label>
+                                            <input type="text" class="form-control" name="tagline" value="AI-Powered Heritage Marketplace">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Default Language</label>
+                                            <select class="form-control" name="defaultLanguage">
+                                                <option value="en" selected>English</option>
+                                                <option value="hi">Hindi</option>
+                                                <option value="bn">Bengali</option>
+                                                <option value="te">Telugu</option>
+                                                <option value="mr">Marathi</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Default Currency</label>
+                                            <select class="form-control" name="defaultCurrency">
+                                                <option value="INR" selected>Indian Rupee (₹)</option>
+                                                <option value="USD">US Dollar ($)</option>
+                                                <option value="EUR">Euro (€)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Maintenance Mode</label>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="maintenance-mode" name="maintenanceMode">
+                                                <label for="maintenance-mode" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="settings-section">
+                                    <h4>Platform Features</h4>
+                                    <div class="feature-toggles">
+                                        <div class="feature-toggle">
+                                            <span class="feature-name">AI Product Recommendations</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="ai-recommendations" checked>
+                                                <label for="ai-recommendations" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="feature-toggle">
+                                            <span class="feature-name">Blockchain Authentication</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="blockchain-auth" checked>
+                                                <label for="blockchain-auth" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="feature-toggle">
+                                            <span class="feature-name">AR/VR Product Views</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="ar-vr-views" checked>
+                                                <label for="ar-vr-views" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="feature-toggle">
+                                            <span class="feature-name">Real-time Chat Support</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="realtime-chat" checked>
+                                                <label for="realtime-chat" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Platform Settings -->
+                            <div id="platform-settings" class="settings-content">
+                                <div class="settings-section">
+                                    <h4>Platform Policies</h4>
+                                    <form id="platform-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Artisan Commission Rate (%)</label>
+                                            <input type="number" class="form-control" name="commissionRate" value="8.5" min="0" max="50" step="0.1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Minimum Order Value (₹)</label>
+                                            <input type="number" class="form-control" name="minOrderValue" value="500" min="0">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Free Shipping Threshold (₹)</label>
+                                            <input type="number" class="form-control" name="freeShippingThreshold" value="2000" min="0">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Return Policy Period (days)</label>
+                                            <input type="number" class="form-control" name="returnPolicyDays" value="14" min="0" max="90">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Product Approval Required</label>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="product-approval" name="productApproval" checked>
+                                                <label for="product-approval" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Payment Settings -->
+                            <div id="payments-settings" class="settings-content">
+                                <div class="settings-section">
+                                    <h4>Payment Gateway Configuration</h4>
+                                    <div class="payment-gateways">
+                                        <div class="payment-gateway">
+                                            <div class="gateway-info">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Old_Visa_Logo.svg" alt="Visa" class="gateway-logo">
+                                                <span class="gateway-name">Visa/Mastercard</span>
+                                            </div>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="visa-gateway" checked>
+                                                <label for="visa-gateway" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-gateway">
+                                            <div class="gateway-info">
+                                                <i class="fab fa-paypal gateway-icon"></i>
+                                                <span class="gateway-name">PayPal</span>
+                                            </div>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="paypal-gateway" checked>
+                                                <label for="paypal-gateway" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-gateway">
+                                            <div class="gateway-info">
+                                                <i class="fas fa-mobile-alt gateway-icon"></i>
+                                                <span class="gateway-name">UPI Payments</span>
+                                            </div>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="upi-gateway" checked>
+                                                <label for="upi-gateway" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-gateway">
+                                            <div class="gateway-info">
+                                                <i class="fas fa-wallet gateway-icon"></i>
+                                                <span class="gateway-name">Digital Wallets</span>
+                                            </div>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="wallet-gateway" checked>
+                                                <label for="wallet-gateway" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="settings-section">
+                                    <h4>Transaction Settings</h4>
+                                    <form id="payment-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Payment Processing Fee (%)</label>
+                                            <input type="number" class="form-control" name="processingFee" value="2.9" min="0" max="10" step="0.1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Payout Frequency</label>
+                                            <select class="form-control" name="payoutFrequency">
+                                                <option value="daily">Daily</option>
+                                                <option value="weekly" selected>Weekly</option>
+                                                <option value="monthly">Monthly</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Auto-refund Failed Orders</label>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="auto-refund" name="autoRefund" checked>
+                                                <label for="auto-refund" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Notification Settings -->
+                            <div id="notifications-settings" class="settings-content">
+                                <div class="settings-section">
+                                    <h4>Email Notifications</h4>
+                                    <div class="notification-settings">
+                                        <div class="notification-item">
+                                            <span class="notification-name">New User Registration</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="email-new-user" checked>
+                                                <label for="email-new-user" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <span class="notification-name">Order Confirmations</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="email-order-confirm" checked>
+                                                <label for="email-order-confirm" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <span class="notification-name">Product Approval Notifications</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="email-product-approval" checked>
+                                                <label for="email-product-approval" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <span class="notification-name">Weekly Analytics Reports</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="email-analytics" checked>
+                                                <label for="email-analytics" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="settings-section">
+                                    <h4>SMS Notifications</h4>
+                                    <div class="notification-settings">
+                                        <div class="notification-item">
+                                            <span class="notification-name">Order Status Updates</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="sms-order-status" checked>
+                                                <label for="sms-order-status" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <span class="notification-name">Payment Confirmations</span>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="sms-payment" checked>
+                                                <label for="sms-payment" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Security Settings -->
+                            <div id="security-settings" class="settings-content">
+                                <div class="settings-section">
+                                    <h4>Security Configuration</h4>
+                                    <form id="security-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Session Timeout (minutes)</label>
+                                            <input type="number" class="form-control" name="sessionTimeout" value="60" min="5" max="480">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Max Login Attempts</label>
+                                            <input type="number" class="form-control" name="maxLoginAttempts" value="5" min="3" max="10">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Password Minimum Length</label>
+                                            <input type="number" class="form-control" name="minPasswordLength" value="8" min="6" max="20">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Two-Factor Authentication Required</label>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="require-2fa" name="require2FA">
+                                                <label for="require-2fa" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">IP Whitelist Enabled</label>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="ip-whitelist" name="ipWhitelist">
+                                                <label for="ip-whitelist" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- API Settings -->
+                            <div id="api-settings" class="settings-content">
+                                <div class="settings-section">
+                                    <h4>API Configuration</h4>
+                                    <div class="api-keys">
+                                        <div class="api-key-item">
+                                            <div class="api-key-info">
+                                                <span class="api-key-name">Public API Key</span>
+                                                <code class="api-key-value">ak_live_4f7d8a9b2c3e1f6g8h9i0j1k2l3m</code>
+                                            </div>
+                                            <button class="btn btn--secondary" onclick="regenerateApiKey('public')">
+                                                <i class="fas fa-sync-alt"></i> Regenerate
+                                            </button>
+                                        </div>
+                                        <div class="api-key-item">
+                                            <div class="api-key-info">
+                                                <span class="api-key-name">Secret API Key</span>
+                                                <code class="api-key-value">sk_live_********************************</code>
+                                            </div>
+                                            <button class="btn btn--secondary" onclick="regenerateApiKey('secret')">
+                                                <i class="fas fa-sync-alt"></i> Regenerate
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="settings-section">
+                                    <h4>Rate Limiting</h4>
+                                    <form id="api-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Requests per minute (per IP)</label>
+                                            <input type="number" class="form-control" name="rateLimit" value="100" min="10" max="1000">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">API Version</label>
+                                            <select class="form-control" name="apiVersion">
+                                                <option value="v1">Version 1.0</option>
+                                                <option value="v2" selected>Version 2.0 (Current)</option>
+                                                <option value="v3">Version 3.0 (Beta)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Enable CORS</label>
+                                            <div class="toggle-switch">
+                                                <input type="checkbox" id="enable-cors" name="enableCors" checked>
+                                                <label for="enable-cors" class="toggle-label"></label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Settings Actions -->
+                            <div class="settings-actions">
+                                <button class="btn btn--secondary" id="reset-settings">
+                                    <i class="fas fa-undo"></i> Reset to Defaults
+                                </button>
+                                <button class="btn btn--primary" id="save-settings">
+                                    <i class="fas fa-save"></i> Save All Settings
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-backdrop">
+            <div class="modal-content product-modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-product-title"></h3>
+                    <button class="modal-close" id="close-product-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="product-modal-layout">
+                        <div class="product-images">
+                            <div class="main-image">
+                                <img id="modal-product-image" src="" alt="">
+                            </div>
+                            <div class="ar-controls">
+                                <button class="btn btn--secondary" id="ar-view-btn">
+                                    <i class="fas fa-cube"></i> AR View
+                                </button>
+                                <button class="btn btn--secondary" id="3d-view-btn">
+                                    <i class="fas fa-expand-arrows-alt"></i> 3D View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-price">
+                                <span class="current-price" id="modal-product-price"></span>
+                                <span class="original-price" id="modal-product-original-price"></span>
+                            </div>
+                            <div class="product-details">
+                                <p id="modal-product-description"></p>
+                                <div class="product-meta">
+                                    <div class="meta-item">
+                                        <strong>Artisan:</strong> <span id="modal-product-artisan"></span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <strong>Dimensions:</strong> <span id="modal-product-dimensions"></span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <strong>Materials:</strong> <span id="modal-product-materials"></span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <strong>Authenticity:</strong> <span id="modal-product-authenticity"></span>
+                                    </div>
+                                </div>
+                                <div class="product-story">
+                                    <h4>Cultural Story</h4>
+                                    <p id="modal-product-story"></p>
+                                </div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--primary btn--lg" id="add-to-cart-btn">Add to Cart</button>
+                                <button class="btn btn--outline btn--lg" id="wishlist-btn">
+                                    <i class="fas fa-heart"></i> Wishlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AR Viewer Modal -->
+    <div id="ar-modal" class="modal hidden">
+        <div class="modal-backdrop">
+            <div class="modal-content ar-modal-content">
+                <div class="modal-header">
+                    <h3>AR Product Viewer</h3>
+                    <button class="modal-close" id="close-ar-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="ar-viewer">
+                        <div class="ar-camera-feed">
+                            <div class="ar-placeholder">
+                                <i class="fas fa-camera"></i>
+                                <p>AR Camera Feed</p>
+                                <p>Place the product in your environment</p>
+                            </div>
+                        </div>
+                        <div class="ar-controls-panel">
+                            <button class="btn btn--secondary">Rotate</button>
+                            <button class="btn btn--secondary">Scale</button>
+                            <button class="btn btn--secondary">Reset</button>
+                            <button class="btn btn--primary">Take Screenshot</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-backdrop">
+            <div class="modal-content cart-modal-content">
+                <div class="modal-header">
+                    <h3>Shopping Cart</h3>
+                    <button class="modal-close" id="close-cart-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items will be populated here -->
+                    </div>
+                    <div class="cart-summary">
+                        <div class="cart-total">
+                            <strong>Total: ₹<span id="cart-total">0</span></strong>
+                        </div>
+                        <button class="btn btn--primary btn--full-width" id="checkout-btn">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal hidden">
+        <div class="modal-backdrop">
+            <div class="modal-content checkout-modal-content">
+                <div class="modal-header">
+                    <h3>Secure Checkout</h3>
+                    <button class="modal-close" id="close-checkout-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkout-form">
+                        <div class="checkout-section">
+                            <h4>Shipping Information</h4>
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <textarea class="form-control" name="address" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="checkout-section">
+                            <h4>Payment Method</h4>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="upi" checked>
+                                    <span class="payment-label">
+                                        <i class="fas fa-mobile-alt"></i> UPI
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="googlepay">
+                                    <span class="payment-label">
+                                        <i class="fab fa-google-pay"></i> Google Pay
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="paypal">
+                                    <span class="payment-label">
+                                        <i class="fab fa-paypal"></i> PayPal
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="stripe">
+                                    <span class="payment-label">
+                                        <i class="fas fa-credit-card"></i> Credit/Debit Card
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="order-summary">
+                            <h4>Order Summary</h4>
+                            <div class="summary-line">
+                                <span>Subtotal:</span>
+                                <span>₹<span id="checkout-subtotal">0</span></span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Shipping:</span>
+                                <span>₹99</span>
+                            </div>
+                            <div class="summary-line total">
+                                <span>Total:</span>
+                                <span>₹<span id="checkout-total">0</span></span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">
+                            Place Order & Generate Certificate
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="add-product-modal" class="modal hidden">
+        <div class="modal-backdrop">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add New Product</h3>
+                    <button class="modal-close" id="close-add-product-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-product-form">
+                        <div class="form-group">
+                            <label class="form-label">Product Images</label>
+                            <input type="file" class="form-control" name="images" accept="image/*" multiple>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select class="form-control" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Traditional Art">Traditional Art</option>
+                                <option value="Home Decor">Home Decor</option>
+                                <option value="Jewelry">Jewelry</option>
+                                <option value="Textiles">Textiles</option>
+                                <option value="Pottery">Pottery</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">
+                            Generate AI Product Listing
+                        </button>
+                    </form>
+                    <div id="ai-generated-product" class="ai-generated hidden">
+                        <h4>AI-Generated Product Details</h4>
+                        <div class="generated-content" id="generated-product-content">
+                            <!-- AI-generated content will appear here -->
+                        </div>
+                        <button class="btn btn--primary btn--full-width" id="save-generated-product">
+                            Save Product
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-backdrop">
+            <div class="modal-content success-modal-content">
+                <div class="modal-body">
+                    <div class="success-content">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 id="success-title">Success!</h3>
+                        <p id="success-message">Your action was completed successfully.</p>
+                        <button class="btn btn--primary" id="close-success-modal">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
